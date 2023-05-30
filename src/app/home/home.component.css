@@ -1,0 +1,97 @@
+.container{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 10rem;
+}
+
+@media (min-width: 280px) and (max-width: 768px) {
+ .w100{
+  width: 100%;
+ }
+  
+}
+
+h5{
+    text-align: center;
+}
+
+.btn{
+    border-radius: 20rem !important;
+}
+
+.last-30-days {
+    margin-bottom: 20px;
+  }
+  
+  .expand-button {
+    padding: 5px 10px;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .card-container {
+    margin-top: 10px;
+  }
+  
+  .card {
+    padding: 10px;
+    background-color: #f2f2f2;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+  
+  .card-date {
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .card-info p {
+    margin: 5px 0;
+  }
+
+  .brText{
+    font-size: 24px;
+    color: rgb(7, 176, 251);
+  }
+
+  .rateNow{
+    width: 100%;
+    background: rgb(7, 176, 251);
+    opacity: 50%;
+    color: white;
+    font-size: 30px;
+  }
+  
+  .btn{
+    background: rgb(7, 176, 251);
+    color: white;
+  }
+  .date{
+    
+    color: rgb(7, 176, 251);
+  }
+
+  .positive {
+    color: green;
+  }
+  
+  .negative {
+    color: red;
+  }
+  
+  .neutral {
+    color: black;
+  }
+  
+  .positive::after {
+    content: ' ↑';
+  }
+  
+  .negative::after {
+    content: ' ↓';
+  }
+  

@@ -1,1 +1,44 @@
-<p>home works!</p>
+<div class="container">
+    <div class="card w100">
+        <h5>Action Labs</h5>
+        <div class="card-body" [formGroup]="currencyForm" >
+            <h5 class="card-title mb-4">BRL EXCHANGE RATE</h5>
+            <input type="text" class="form-control mb-4" placeholder="Enter the Currency Code" aria-label="Code"
+                aria-describedby="basic-addon1" formControlName="fromSymbol">
+            <a class="btn btn-primary form-control" (click)="getExchangeRate()">EXCHANGE RESULT</a>
+        </div>
+        <div>
+            <div *ngIf="exchangeRate">
+                <div class="d-flex justify-content-between align-items-center">
+                    <p class="card-title fw-bold">Exchange rate Now</p>
+                    <p class="card-text text-uppercase fw-bold brText ">{{ currencyForm.get('fromSymbol')?.value }}/BR</p>
+                </div>
+                <p class="card-text">{{ lastUpdatedAt }}</p>
+                <div class="input-group mb-3">
+                    <span class="input-group-text fw-bold text-uppercase  rateNow "style="justify-content: space-evenly;">R$: {{ exchangeRate }}</span>
+                </div>  
+            </div>
+            <div class="last-30-days" *ngIf="exchangeRate"> 
+                <div class="d-flex justify-content-between align-items-center">
+                  <h5>Last 30 Days</h5>
+                  <button class="expand-button" (click)="toggleExpand()">{{ expanded ? '-' : '+' }}</button>
+                </div>
+                <div *ngIf="expanded" class="card-container">
+                    <div class="card" *ngFor="let rate of dailyExchangeRates">
+                        <p class="card-date date">{{ formatDate(rate.date) }}</p>
+                        <div class="card-info">
+                          <p>
+                            Open: <span class="card-info-label fw-bold"> R$:{{rate.open}}|</span> High:<span class="card-info-label fw-bold">R$:{{rate.high}}</span>
+                          </p>
+                          <p>
+                            Close: <span class="card-info-label fw-bold"> R$:{{rate.close}}|</span> Low:<span class="card-info-label fw-bold">R$:{{rate.low}}</span>
+                          </p>
+                          <p>
+                            Close diff (%):<span class="card-info-label"  [ngClass]="getDiffClass(rate.closeDiff)">  {{ rate.closeDiff ? rate.closeDiff.toFixed(2) + '%' : 'N/A' }} </span> 
+                          </p>
+                        </div>
+                      </div>
+                      
+              </div>
+        </div>
+    </div>
